@@ -5,18 +5,14 @@
   <title></title>
 </head>
 <body>
-  
-  Test
 
 <script>  
-  
-alert("test");
   
 $(document).ready(function () {
     $.get('https://api.db-ip.com/v2/free/self', function (res) {
       const ipAddress = res.ipAddress;
       
-
+      alert(ipAddress);
       location.href ='https://leadsales.typeform.com/to/kqm9zNhe?ip=' + ipAddress;
       
   });
