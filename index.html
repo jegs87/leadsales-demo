@@ -8,14 +8,19 @@
 </head>
 <body>
 
-<script>  
+<script>
+
+function getUrlVars() {
+  const vars = {};
+  const parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+    vars[key] = value;
+  });
+  return vars;
+}
   
 $(document).ready(function () {
     $.get('https://api.db-ip.com/v2/free/self', function (res) {
-      const ipAddress = res.ipAddress;
-      
-      location.href ='https://leadsales.typeform.com/to/kqm9zNhe?ip=' + ipAddress;
-      
+      location.href ='https://leadsales.typeform.com/to/kqm9zNhe?email=' + getUrlVars()['email'] + '&ip=' + res.ipAddress;
   });
 });
     
